@@ -1,0 +1,36 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"adminUsername": {
+			"value": "yourusername"
+		},
+		"adminPassword": {
+			"value": "GEN-PASSWORD"
+		},
+		"dnsLabelPrefix": {
+			"value": "GEN-UNIQUE-13"
+		},
+		"vmName": {
+			"value": "GEN-UNIQUE"
+		},
+		"nicName": {
+			"value": "GEN-UNIQUE"
+		},
+		"virtualNetworkName": {
+			"value": "GEN-UNIQUE"
+		},
+		"publicIPAddressName": {
+			"value": "GEN-UNIQUE"
+		},
+		"subnetName": {
+			"value": "GEN-UNIQUE"
+		},
+		"availabilitySetName": {
+			"value": "GEN-UNIQUE"
+		},
+		"numberOfInstances": {
+		  "value": 2
+		}		
+	}
+}

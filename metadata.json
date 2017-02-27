@@ -1,0 +1,7 @@
+{
+  "itemDisplayName": "Active Directory integrated DNS with delegated subdomain, both having WinRM endpoint configured for remote management",
+  "description": "This template allows to deploy two Windows VMs, each having WinRM HTTPS listener configured and Active Directory DNS installed and configured as parent and delegated subdomain.",
+  "summary": "Deploy two Windows VMs, each having WinRM HTTPS listener configured and Active Directory integrated DNS installed and configured as parent and delegated subdomain",
+  "githubUsername": "mhsiemaszko",
+  "dateUpdated": "2017-02-27"
+}
