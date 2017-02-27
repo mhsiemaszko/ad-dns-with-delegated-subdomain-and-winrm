@@ -70,6 +70,12 @@
       "metadata": {
         "description": "The name for the VM's Subnet."
       }
+    },
+    "availabilitySetName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name for the Availability Set."
+      }
     }
   },
   "variables": {
