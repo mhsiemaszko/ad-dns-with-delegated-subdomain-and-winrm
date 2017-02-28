@@ -93,15 +93,14 @@
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
     "availabilitySetName": "[parameters('availabilitySetName')]",
-    "apiVersion": "2015-06-15",
     "hostDNSNameScriptArgument": "[concat('*.',resourceGroup().location,'.cloudapp.azure.com')]", 
     "dnsLabelPrefix": "[parameters('dnsLabelPrefix')]"
   }, 
   "resources": [
 	{
-	  "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[variables('availabilitySetName')]",
+      "apiVersion": "2016-04-30-preview", 
 	  "location": "[resourceGroup().location]",
 	  "properties": {
 	    "platformFaultDomainCount": "2",
@@ -110,9 +109,9 @@
 	  }
     },
     {
-      "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[variables('virtualNetworkName')]",
+      "apiVersion": "2016-03-30",
       "location": "[resourceGroup().location]",
       "properties": {
         "addressSpace": {
@@ -131,9 +130,9 @@
       }
     }, 
     {
-      "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[concat(variables('publicIPAddressName'), copyindex())]",      
+      "name": "[concat(variables('publicIPAddressName'), copyindex())]", 
+      "apiVersion": "2016-03-30",
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "publicIPLoop",
@@ -147,9 +146,9 @@
       }
     },
     {
-      "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Network/networkInterfaces",
       "name": "[concat(variables('nicName'), copyindex())]",
+      "apiVersion": "2016-03-30",
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "nicLoop",
@@ -177,9 +176,9 @@
       }
     },
     {
-      "apiVersion": "[variables('apiVersion')]",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[concat(variables('vmName'), copyindex())]",
+      "apiVersion": "2016-04-30-preview",
       "location": "[resourceGroup().location]",
       "copy": {
         "name": "virtualMachineLoop",
@@ -223,7 +222,7 @@
         {
           "type": "Microsoft.Compute/virtualMachines/extensions",
           "name": "[concat(variables('vmName'), copyindex(), '/VnWinPostDeploymentSetupCustomScriptExtension')]",
-          "apiVersion": "[variables('apiVersion')]",
+          "apiVersion": "2016-04-30-preview",
           "location": "[resourceGroup().location]",
           "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'), copyindex())]"
